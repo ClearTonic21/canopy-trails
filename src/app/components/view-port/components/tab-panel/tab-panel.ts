@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @Component({
   selector: 'tab-panel',
-  imports: [],
+  imports: [MatTabsModule],
   templateUrl: './tab-panel.html',
   styleUrl: './tab-panel.scss'
 })

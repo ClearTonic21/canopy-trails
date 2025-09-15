@@ -16,9 +16,17 @@ span {
   width: 100%;
 }
 
+.view-port-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  padding: 1rem;
+}
+
 .underview-footer-container {
   display: flex;
-  align-items: flex-end;
-  height: 20vh;
+  flex-direction: column;
+  justify-content: end;
   width: 100%;
 }

@@ -1,0 +1,21 @@
+.inner-port {
+  display: flex;
+  align-items: center;
+}
+
+.selector-panel-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  height: 100%;
+  width: 20%;
+}
+
+.adjustable-port {
+  height: 75vh;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
