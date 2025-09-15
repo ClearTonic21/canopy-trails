@@ -1,0 +1,28 @@
+.overview-header-content {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  width: 99%;
+  margin: 0.25rem 0.15rem;
+  overflow: visible;
+  .mat-toolbar-row, .mat-toolbar-single-row {
+    justify-content: space-between;
+    padding: 0 1rem;
+    font-size: xx-large;
+    font-weight: 500;
+    background: darkgray;
+    border-bottom: solid 0.3rem rgb(61, 61, 61);
+    border-right: solid 0.3rem rgb(61, 61, 61);
+    border-top: solid 0.15rem gray;
+    border-left: solid 0.15rem gray;
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    box-shadow: 0.5rem 0.25rem 2rem black;
+  }
+}
+
+
+.end-controls {
+  display: flex;
+  gap: 1rem;
+}
