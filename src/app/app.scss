@@ -1,14 +1,3 @@
-div {
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-  width: 100%;
-}
-
-span {
-  display: block;
-}
-
 .canopy-trails-content {
   display: flex;
   flex-direction: column;
@@ -16,12 +5,22 @@ span {
   width: 100%;
 }
 
-.view-port-container {
+.overview-header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.15rem 0 1rem 0;
+}
+
+overview-header {
+  display: flex;
+  width: 99%;
+}
+
+view-port {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
   width: 100%;
-  padding: 1rem;
 }
 
 .underview-footer-container {

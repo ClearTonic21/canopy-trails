@@ -1,8 +1,13 @@
 <main class="main">
   <div class="canopy-trails-content">
-    <overview-header [title]="userTitle()" />
+    <div class="overview-header-container">
+      <overview-header [title]="userTitle()" />
+    </div>
     <div class="view-port-container">
       <view-port></view-port>
+    </div>
+    <div class="tab-panel-container">
+      <tab-panel></tab-panel>
     </div>
     <div class="underview-footer-container">
       <underview-footer></underview-footer>

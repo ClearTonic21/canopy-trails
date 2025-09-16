@@ -9,8 +9,9 @@
 html {
   @include mat.theme((
     color: (
-      primary: mat.$cyan-palette,
-      tertiary: mat.$orange-palette,
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
     ),
     typography: Roboto,
     density: 0,
@@ -45,5 +46,11 @@ html, body {
 
 body {
   overflow-y: hidden;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  height: 100%;
 }
+
+span {
+  display: block;
+}
+

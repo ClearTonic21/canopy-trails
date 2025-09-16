@@ -16,6 +16,12 @@
   height: 75vh;
   justify-content: space-between;
   display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
+}
+
+.view-port-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
