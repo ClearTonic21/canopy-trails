@@ -1,27 +1,62 @@
+.adjustable-port {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 75vh;
+  padding: 0 1rem 0 0;
+}
+
+.selector-panel-container {
+  display: flex;
+  flex-direction: column;
+  background: whitesmoke;
+  border-bottom: solid 0.3rem rgb(61, 61, 61);
+  border-right: solid 0.3rem rgb(61, 61, 61);
+  border-top: solid 0.15rem gray;
+  border-left: solid 0.15rem gray;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  box-shadow: 0.1rem 0.25rem 2rem black;
+}
+
+mat-sidenav-container {
+  height: 100%;
+  width: 100%;
+}
+
 .inner-port {
   display: flex;
   align-items: center;
 }
 
-.selector-panel-container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-self: center;
-  height: 100%;
-  width: 20%;
+.chevron-icon-aimed-left {
+  overflow: visible;
+  z-index: 10;
+  animation-name: toggleAim;
+  animation-duration: 350ms;
+  animation-timing-function: ease-in-out;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
 }
 
-.adjustable-port {
-  height: 75vh;
-  justify-content: space-between;
-  display: flex;
+.chevron-icon-aimed-right {
+  overflow: visible;
+  z-index: 10;
+  animation-name: toggleAim;
+  animation-duration: 350ms;
+  animation-timing-function: ease-in-out;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
 }
 
-.view-port-panel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
+@keyframes toggleAim {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 2;
+    transform: rotate(-180deg);
+  }
 }

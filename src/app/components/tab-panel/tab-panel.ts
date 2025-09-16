@@ -1,6 +1,10 @@
 import { Component, Input, signal } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 
+class Tab {
+  name: string = 'tabName'
+}
+
 @Component({
   selector: 'tab-panel',
   imports: [MatTabsModule],
@@ -8,5 +12,5 @@ import { MatTabsModule } from '@angular/material/tabs';
   styleUrl: './tab-panel.scss'
 })
 export class TabPanel {
-
+  @Input() tabs: Tab[] = [];
 }

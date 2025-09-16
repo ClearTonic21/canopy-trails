@@ -3,7 +3,8 @@
   animationDuration="200ms"
   mat-stretch-tabs="false"
 >
-  <mat-tab label="First"></mat-tab>
-  <mat-tab label="Second"></mat-tab>
-  <mat-tab label="Third"></mat-tab>
+  <mat-tab label="All"></mat-tab>
+  @for (tab of tabs; track $index) {
+    <mat-tab label="{{ tab.name }}"></mat-tab>
+  }
 </mat-tab-group>
