@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SelectorPanel } from './selector-panel';
+import { SelectionList } from './selection-list';
 
-describe('SelectorPanel', () => {
-  let component: SelectorPanel;
-  let fixture: ComponentFixture<SelectorPanel>;
+describe('SelectionList', () => {
+  let component: SelectionList;
+  let fixture: ComponentFixture<SelectionList>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SelectorPanel]
+      imports: [SelectionList]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SelectorPanel);
+    fixture = TestBed.createComponent(SelectionList);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

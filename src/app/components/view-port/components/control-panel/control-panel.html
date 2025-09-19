@@ -1,1 +1,71 @@
-<p>control-panel works!</p>
+<div
+  class="control-panel-content"
+  cdkDrag
+  #controlPanel
+  [cdkDragDisabled]="lockControlPosition()"
+  cdkDragBoundary=".canopy-trails-content"
+  >
+  <div class="drag-handle-banner"
+    (contextmenu)="onContextMenu($event)"
+  >
+    @if (!lockControlPosition()) {
+      <mat-icon class="drag-handle" cdkDragHandle>drag_indicator</mat-icon>
+    }
+    @else {
+      <mat-icon class="deny-drag">lock</mat-icon>
+    }
+  </div>
+  <div class="control-buttons-container">
+    <mat-button-toggle-group>
+      <mat-button-toggle 
+        class="control-button"
+        matTooltip="{{viewerModeTooltip}}"
+        value="viewerMode"
+        matMiniFab
+        (click)="SwitchToViewerMode()"
+      >
+        <mat-icon class="view">visibility</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle 
+        class="control-button"
+        matTooltip="{{editorModeTooltip}}"
+        value="editorMode"
+        matMiniFab
+        (click)="SwitchToEditorMode()"
+      >
+        <mat-icon class="edit">edit</mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+    <div class="button-pair">
+      <button
+        class="control-button"
+        matTooltip="Undo last change [ctrl + z]"
+        matMiniFab
+      >
+        <mat-icon class="undo">undo</mat-icon>
+      </button>
+      <button
+        class="control-button"
+        matTooltip="Redo last change [ctrl + y]"
+        matMiniFab
+      >
+        <mat-icon class="redo">redo</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div
+  class="control-panel-context-menu"
+  style="visibility: hidden; position: fixed"
+  [style.left]="contextMenuPosition.x"
+  [style.top]="contextMenuPosition.y"
+  [matMenuTriggerFor]="contextMenu"
+></div>
+<mat-menu #contextMenu="matMenu">
+  <ng-template matMenuContent let-option="option">
+    @for (option of contextOptions; track $index) {
+      <button mat-menu-item (click)="onContextMenuAction1(option)">{{option.text}}</button>
+    }
+  </ng-template>
+</mat-menu>
