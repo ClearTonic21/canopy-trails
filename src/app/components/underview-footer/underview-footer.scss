@@ -1,7 +1,12 @@
 .underview-footer-content {
-  height: 20vh;
-  padding: 1rem;
-  color: rgb(94, 164, 230);
-  border: 0.15rem solid rgb(15, 89, 159);
-  background: rgb(51, 70, 88);
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: end;
+    min-height: 40vh;
+    width: 100%;
+    padding: 1rem 1rem 0 0;
+    color: rgb(94, 164, 230);
+    border-top: 0.25rem solid rgb(15, 89, 159);
+    background: rgb(51, 70, 88);
 }
