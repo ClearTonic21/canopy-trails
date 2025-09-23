@@ -2,8 +2,6 @@
   display: flex;
   gap: 2rem;
   padding: 0 1rem;
-  font-size: xx-large;
-  font-weight: 500;
   background: whitesmoke;
   border-bottom: solid 0.3rem rgb(61, 61, 61);
   border-right: solid 0.3rem rgb(61, 61, 61);
@@ -12,6 +10,23 @@
   border-bottom-right-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
   box-shadow: 0.5rem 0.25rem 2rem black;
+}
+
+input { 
+  display: inline-flex;
+  width: fit-content;
+  font-size: xx-large;
+  max-width: 50vh;
+  border: 0;
+  background: whitesmoke;
+
+
+  :focus {
+    background: whitesmoke;
+    border-width: 2px;
+    border-style: inset;
+    border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  }
 }
 
 .end-controls {

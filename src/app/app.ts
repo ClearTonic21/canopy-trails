@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, Output, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { OverviewHeader } from "./components/overview-header/overview-header";
 import { ViewPort } from "./components/view-port/view-port";
@@ -13,5 +13,7 @@ import { TabPanel } from './components/tab-panel/tab-panel';
 })
 export class App {
   protected readonly standardTitle = signal<string>('CANOPY TRAILS');
-  userTitle = signal<string>('MY CANOPY TRAIL');
+  @Output() userTitle = signal<string>('MY CANOPY TRAILS');
+
+  get getUserTitle(): string { return this.userTitle()};
 }

@@ -2,17 +2,18 @@ import { Component, Input, Output, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'overview-header',
-  imports: [ MatIconModule, MatToolbarModule, MatButtonModule, MatButtonToggleModule, MatTooltipModule ],
+  imports: [ MatInputModule, MatIconModule, MatToolbarModule, MatButtonModule, MatButtonToggleModule, MatTooltipModule ],
   templateUrl: './overview-header.html',
   styleUrl: './overview-header.scss'
 })
 export class OverviewHeader {
-  @Input() userTitle = signal<string>( 'User Title' );
+  @Input() title: string = 'Canopy Trails';
   @Output() setFavorite = signal<boolean>(false);
   @Output() hasAdminPermissions = signal<boolean>(true);
   @Output() editorMode = signal<boolean>(true);
