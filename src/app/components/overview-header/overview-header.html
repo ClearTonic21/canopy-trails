@@ -1,13 +1,52 @@
 <mat-toolbar>
   <span>{{ userTitle() }}</span>
-  <div class="end-controls">
-    <button
-      matIconButton
-      class="favorite-icon"
-      matTooltip="Info about the action"
+  <mat-button-toggle-group
+    hideSingleSelectionIndicator="true"
+  >
+    <mat-button-toggle
+      class="favorited"
+      matMiniFab
+      [checked]="setFavorite()"
+      (click)="ToggleFavorite()"
     >
-      <mat-icon>favorite</mat-icon>
-    </button>
+      <mat-icon class="heart">favorite</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+  <div class="end-controls">
+    <mat-button-toggle-group>
+      <mat-button-toggle 
+        class="control-button"
+        matTooltip="{{viewerModeTooltip}}"
+        value="viewerMode"
+        matMiniFab
+        [checked]="viewerMode()"
+        (click)="SwitchToViewerMode()"
+      >
+        <mat-icon class="view">visibility</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle 
+        class="control-button"
+        matTooltip="{{editorModeTooltip}}"
+        value="editorMode"
+        matMiniFab
+        [checked]="editorMode()"
+        (click)="SwitchToEditorMode()"
+      >
+        <mat-icon class="edit">edit</mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+      <mat-button-toggle-group>
+        <mat-button-toggle 
+          class="control-button"
+          matTooltip="{{adminModeTooltip}}"
+          value="hasAdminPermissions"
+          matMiniFab
+          [checked]="hasAdminPermissions()"
+          (click)="ToggleAdminPermissions()"
+        >
+          <mat-icon class="admin">shield_person</mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
     <button
       matIconButton
       class="account-circle-icon"

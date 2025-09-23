@@ -3,12 +3,11 @@ import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import { NgClass } from '@angular/common';
-import { ControlPanel } from "./components/control-panel/control-panel";
 import { SelectionList } from "./components/selection-list/selection-list";
 
 @Component({
   selector: 'view-port',
-  imports: [ NgClass, MatSidenavModule, MatButtonModule, MatIconModule, NgClass, ControlPanel, SelectionList],
+  imports: [ NgClass, MatSidenavModule, MatButtonModule, MatIconModule, NgClass, SelectionList],
   templateUrl: './view-port.html',
   styleUrl: './view-port.scss'
 })
