@@ -1,7 +1,7 @@
 .mat-toolbar-row, .mat-toolbar-single-row {
   display: flex;
-  gap: 2rem;
-  padding: 0 1rem;
+  gap: 1rem;
+  align-items: center;
   background: whitesmoke;
   border-bottom: solid 0.3rem rgb(61, 61, 61);
   border-right: solid 0.3rem rgb(61, 61, 61);
@@ -12,10 +12,16 @@
   box-shadow: 0.5rem 0.25rem 2rem black;
 }
 
+form {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 input { 
   display: inline-flex;
   width: fit-content;
-  font-size: xx-large;
+  font-size: x-large;
   max-width: 50vh;
   border: 0;
   background: whitesmoke;
@@ -27,6 +33,10 @@ input {
     border-style: inset;
     border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
   }
+}
+
+.mat-button-toggle-checked {
+  background-color: pink;
 }
 
 .end-controls {
