@@ -1,5 +1,5 @@
 <div class="adjustable-port">
-  <mat-sidenav-container>
+  <!-- <mat-sidenav-container>
     <mat-sidenav
       class="selection-list-panel"
       #sideNavSelectorPanel
@@ -23,7 +23,25 @@
         <p>This is the view port area!</p>
       </div>
     </mat-sidenav-content>
-  </mat-sidenav-container>
+  </mat-sidenav-container> -->
+  <div
+    class="selection-list-panel"
+    #sideNavSelectorPanel
+    [style.width]="currentSideBarWidth()"
+  >
+    <selection-list></selection-list>
+  </div>
+  <div
+    cdkDrag
+    cdkDragLockAxis="x"
+    (cdkDragMoved)="onDragMoved($event)"
+    class="drag-handle"
+  >
+    <mat-icon>drag_indicator</mat-icon>
+  </div>
+  <div class="inner-port view-port-panel">
+    <p>This is the view port area!</p>
+  </div>
 
 </div>
 

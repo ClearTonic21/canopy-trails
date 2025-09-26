@@ -1,7 +1,6 @@
 .adjustable-port {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
   height: 82vh;
   padding: 0 1rem 0 0;
 }
@@ -10,12 +9,41 @@
   display: flex;
   flex-direction: column;
   background: whitesmoke;
-  border-bottom: solid 0.3rem rgb(61, 61, 61);
-  border-right: solid 0.3rem rgb(61, 61, 61);
+  border-bottom: solid 0.25rem rgb(61, 61, 61);
+  //border-right: solid 0.25rem rgb(61, 61, 61);
   border-top: solid 0.15rem gray;
+  // border-bottom-right-radius: 0.5rem;
+  // border-bottom-left-radius: 0.5rem;
+  // box-shadow: 0.1rem 0.25rem 2rem black;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transition: width 100ms;
+  min-width: 0.5rem;
+  max-width: 50%;
+}
+
+.drag-handle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: col-resize;
+  background: lightgray;
+  width: 0.8rem;
+  border-bottom: solid 0.25rem rgb(61, 61, 61);
+  border-right: solid 0.25rem rgb(61, 61, 61);
+  border-top: solid 0.15rem gray;
+  border-right: solid 0.25rem rgb(61, 61, 61);
   border-bottom-right-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
-  box-shadow: 0.1rem 0.25rem 2rem black;
+  border-top-right-radius: 0.5rem;
+
+  mat-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 0.5rem;
+    z-index: 500;
+    overflow: visible;
+  }
 }
 
 mat-sidenav-container {
