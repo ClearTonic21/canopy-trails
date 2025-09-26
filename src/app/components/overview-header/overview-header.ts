@@ -10,7 +10,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'overview-header',
-  imports: [ FormsModule, MatMenuModule, MatInputModule, MatIconModule, MatToolbarModule, MatButtonModule, MatButtonToggleModule, MatTooltipModule ],
+  imports: [ FormsModule, MatMenuModule, MatInputModule, MatIconModule, MatToolbarModule, MatButtonModule, MatButtonToggleModule, MatTooltipModule],
   templateUrl: './overview-header.html',
   styleUrl: './overview-header.scss'
 })

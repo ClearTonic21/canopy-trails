@@ -56,11 +56,11 @@
       value="{{title}}"
     >
     <mat-button-toggle
-      class="favorited"
       [checked]="favorited()"
       (click)="toggleFavorite()"
     >
-      <mat-icon class="heart">favorite</mat-icon>
+      <mat-icon class="heart" [class.favorited]="favorited()"
+>favorite</mat-icon>
     </mat-button-toggle>
   </form>
   <div class="end-controls">
@@ -73,7 +73,7 @@
         [checked]="viewerMode()"
         (click)="switchToViewerMode()"
       >
-        <mat-icon class="view">visibility</mat-icon>
+        <mat-icon class="view" [class.viewer-mode]="viewerMode()">visibility</mat-icon>
       </mat-button-toggle>
       <mat-button-toggle 
         class="control-button"
@@ -83,7 +83,7 @@
         [checked]="editorMode()"
         (click)="switchToEditorMode()"
       >
-        <mat-icon class="edit">edit</mat-icon>
+        <mat-icon class="edit" [class.editor-mode]="editorMode()">edit</mat-icon>
       </mat-button-toggle>
     </mat-button-toggle-group>
       <mat-button-toggle-group>
@@ -95,7 +95,7 @@
           [checked]="hasAdminPermissions()"
           (click)="toggleAdminPermissions()"
         >
-          <mat-icon class="admin">shield_person</mat-icon>
+          <mat-icon class="admin" [class.admin-mode]="hasAdminPermissions()">shield_person</mat-icon>
       </mat-button-toggle>
     </mat-button-toggle-group>
     <button

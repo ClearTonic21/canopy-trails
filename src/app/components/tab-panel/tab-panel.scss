@@ -1,8 +1,11 @@
 .navigation-tabs-group {
-  max-height: 4vh;
-  min-height: 4vh;
+  min-height: 6vh;
   overflow-x: auto;
   overflow-y: hidden;
+}
+
+.mat-mdc-tab-group.mat-mdc-tab-group-inverted-header .mat-mdc-tab-header {
+  flex-direction: column;
 }
 
 .navigation-tab {
@@ -34,4 +37,13 @@
   padding: 0 1rem;
   overflow: hidden;
   user-select: none;
+}
+
+.mat-mdc-tab-header-pagination-before, .mat-mdc-tab-header-pagination-after {
+  background: pink;
+  padding-left: 4px;
+
+    :hover {
+    background: lightblue;
+  }
 }
