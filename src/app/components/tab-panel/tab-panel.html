@@ -9,7 +9,7 @@
   mat-stretch-tabs="false"
 >
   <mat-tab class="navigation-tab all-tab" label="All">
-      <div class="navigation-tab" mat-tab-label>All</div>
+      <span class="all-tab"></span>
   </mat-tab>
   @for (tab of tabs; track $index;) {
     <mat-tab id="navigation-tab-{{$index}}" class="navigation-tab" label="{{tab.name}}">
