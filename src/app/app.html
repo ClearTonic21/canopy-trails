@@ -1,7 +1,17 @@
 <main class="main">
-  <div class="content">
-    <h1>{{ title() }}</h1>
-    <p>This is a placeholder content. You can replace it with your own content.</p>
+  <div class="canopy-trails-content">
+    <div class="overview-header-container">
+      <overview-header [title]="userTitle()" />
+    </div>
+    <div class="view-port-container">
+      <view-port></view-port>
+    </div>
+    <div class="tab-panel-container">
+      <tab-panel></tab-panel>
+    </div>
+    <div class="underview-footer-container">
+      <underview-footer></underview-footer>
+    </div>
   </div>
 </main>
 
