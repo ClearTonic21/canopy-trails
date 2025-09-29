@@ -8,41 +8,41 @@
 .selection-list-panel {
   display: flex;
   flex-direction: column;
-  background: whitesmoke;
-  border-bottom: solid 0.25rem rgb(61, 61, 61);
-  //border-right: solid 0.25rem rgb(61, 61, 61);
-  border-top: solid 0.15rem gray;
-  // border-bottom-right-radius: 0.5rem;
-  // border-bottom-left-radius: 0.5rem;
-  // box-shadow: 0.1rem 0.25rem 2rem black;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  transition: width 100ms;
   min-width: 0.5rem;
   max-width: 50%;
+  overflow: hidden;
+  background: whitesmoke;
+  border-top: solid 0.1rem gray;
+  border-bottom: solid 0.18rem rgb(61, 61, 61);
+  //box-shadow: 0 0.25rem 3rem gray;
+  text-overflow: ellipsis;
+  transition: width 50ms;
+  z-index: 200;
 }
 
 .drag-handle {
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: col-resize;
-  background: lightgray;
   width: 0.8rem;
-  border-bottom: solid 0.25rem rgb(61, 61, 61);
+  margin: 0 0.5rem 0 0;
+  background: lightgray;
+  border-top: solid 0.1rem gray;
   border-right: solid 0.25rem rgb(61, 61, 61);
-  border-top: solid 0.15rem gray;
-  border-right: solid 0.25rem rgb(61, 61, 61);
-  border-bottom-right-radius: 0.5rem;
+  border-bottom: solid 0.18rem rgb(61, 61, 61);
   border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  //box-shadow: 0.1rem 0.25rem 2rem black;
+  cursor: col-resize;
+  z-index: 100;
 
   mat-icon {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 0.5rem;
-    z-index: 500;
     overflow: visible;
+    z-index: 100;
   }
 }
 
@@ -51,15 +51,17 @@ mat-sidenav-container {
   width: 100%;
 }
 
-.inner-port {
+.content-view-port {
   display: flex;
-  align-items: center;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
 }
 
 .chevron-icon-aimed-left {
   overflow: visible;
-  z-index: 10;
   margin: 1rem 0 1rem 1rem;
+  z-index: 10;
   animation-name: toggleAim;
   animation-duration: 350ms;
   animation-timing-function: ease-in-out;

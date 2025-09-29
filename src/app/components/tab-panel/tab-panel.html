@@ -9,20 +9,20 @@
   mat-stretch-tabs="false"
 >
   <mat-tab class="navigation-tab all-tab" label="All">
-      <span class="navigation-tab-name all-tab"></span>
+      <div class="navigation-tab" mat-tab-label>All</div>
   </mat-tab>
   @for (tab of tabs; track $index;) {
-      <mat-tab class="navigation-tab-{{$index}}" label="{{tab.name}}">
-        <ng-template mat-tab-label>
-          <div
-            class="navigation-tab"
-            cdkDrag
-            cdkDragBoundary=".navigation-tabs-group"
-            cdkDragRootElement=".mat-mdc-tab"
-          >
-            {{tab.name}}
-          </div>
-        </ng-template>
-      </mat-tab>
-    }
+    <mat-tab id="navigation-tab-{{$index}}" class="navigation-tab" label="{{tab.name}}">
+      <ng-template mat-tab-label>
+        <div
+          class="navigation-tab"
+          cdkDrag
+          cdkDragBoundary=".navigation-tabs-group"
+          cdkDragRootElement=".mat-mdc-tab"
+        >
+          {{tab.name}}
+        </div>
+      </ng-template>
+    </mat-tab>
+  }
 </mat-tab-group>

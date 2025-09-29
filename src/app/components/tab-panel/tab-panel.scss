@@ -1,11 +1,9 @@
 .navigation-tabs-group {
-  min-height: 6vh;
+  min-height: 4vh;
   overflow-x: auto;
   overflow-y: hidden;
-}
-
-.mat-mdc-tab-group.mat-mdc-tab-group-inverted-header .mat-mdc-tab-header {
-  flex-direction: column;
+  background: #edeeee;
+  margin: 1rem 0 0 0;
 }
 
 .navigation-tab {
@@ -16,20 +14,13 @@
   padding: 0.5rem 0.9rem;
   overflow: hidden;
   user-select: none;
-  border: solid 1px gray;
-  border-bottom: solid 1px darkblue;
-  background: whitesmoke;
+  border-right: solid 1px gray;
+  border-bottom: solid 1px gray;
+  z-index: 500;
+  user-select: none;
 }
 
-.navigation-tab-name {
-    user-select: none;
-}
-
-.all-tab {
-    user-select: none;
-}
-
-.mdc-tab {
+mdc-tab {
   display: flex;
   flex-direction: row;
   min-width: fit-content;
@@ -41,7 +32,6 @@
 
 .mat-mdc-tab-header-pagination-before, .mat-mdc-tab-header-pagination-after {
   background: pink;
-  padding-left: 4px;
 
     :hover {
     background: lightblue;

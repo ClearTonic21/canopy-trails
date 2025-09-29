@@ -1,15 +1,14 @@
 import { Component, signal, ViewChild } from '@angular/core';
+import { SelectionList } from "./components/selection-list/selection-list";
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule, MatIconButton } from '@angular/material/button';
-import { NgClass } from '@angular/common';
-import { SelectionList } from "./components/selection-list/selection-list";
 import { CdkDragMove, DragDropModule } from '@angular/cdk/drag-drop';
 import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'view-port',
-  imports: [ MatDividerModule, DragDropModule, NgClass, MatSidenavModule, MatButtonModule, MatIconModule, NgClass, SelectionList],
+  imports: [ MatDividerModule, DragDropModule, MatSidenavModule, MatButtonModule, MatIconModule, SelectionList],
   templateUrl: './view-port.html',
   styleUrl: './view-port.scss'
 })
