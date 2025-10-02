@@ -1,11 +1,66 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTreeModule } from '@angular/material/tree';
+import { forEachChild } from 'typescript';
 
+interface FoodNode {
+  index: number;
+  [value: string]: any;
+  name: string;
+  children?: FoodNode[];
+}
 @Component({
   selector: 'selection-list',
-  imports: [],
+  imports: [ MatTreeModule, MatIconModule ],
   templateUrl: './selection-list.html',
   styleUrl: './selection-list.scss'
 })
 export class SelectionList {
+  dataSource = EXAMPLE_DATA;
+  selectedLeaf = signal<number>(-1);
 
+  childrenAccessor = (node: FoodNode) => node.children ?? [];
+
+  hasChild = (_: number, node: FoodNode) => !!node.children && node.children.length > 0;
+
+  NodeHasChild(node: FoodNode): boolean {
+    return !!node.children && node.children.length > 0 
+  }
+  
+  isForest(node: FoodNode): boolean {
+    console.log(node.children);
+    let isForest = false;
+    for(const child of node.children ?? []) {
+      isForest = this.NodeHasChild(child);
+    }
+    return isForest;
+  };
+
+  selectLeaf(node: FoodNode): void {
+    this.selectedLeaf.set(node.index);
+  }
 }
+
+const EXAMPLE_DATA: FoodNode[] = [
+  {
+    index: 0,
+    name: 'Fruit',
+    children: [{index: 4, name: 'Apple'}, {index: 5, name: 'Banana'}, {index: 6, name: 'Fruit loops'}],
+  },
+  {
+    index: 1,
+    name: 'Vegetables',
+    children: [
+      {
+        index: 2,
+        name: 'Green',
+        children: [{index: 7, name: 'Broccoli'}, {index: 8, name: 'Brussels sprouts'}],
+      },
+      {
+        index: 3,
+        name: 'Orange',
+        children: [{index: 9, name: 'Pumpkins'}, {index: 10, name: 'Carrots'}],
+      },
+    ],
+  },
+];

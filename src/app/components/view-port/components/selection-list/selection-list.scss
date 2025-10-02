@@ -1,0 +1,24 @@
+mat-tree {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1rem 0 0;
+  background: whitesmoke;
+}
+
+
+mat-tree-node {
+  gap: 0.33rem;
+  background: whitesmoke;
+  cursor: pointer;
+
+  &:hover {
+    background: rgb(212, 212, 212);
+  }
+}
+
+.selected {
+  color: #4fad89;
+  font-size: x-large;
+  font-weight: 800;
+}
