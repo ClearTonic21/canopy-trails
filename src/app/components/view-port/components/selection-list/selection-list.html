@@ -8,13 +8,12 @@
     matTreeNodePadding
     (click)="SelectNode(node)"
   >
-    <mat-icon
-      [class.selected]="selectedNode() === node.index"
-      disabled
-    >
+    <mat-icon [class.selected]="selectedNode() === node.index">
       eco
     </mat-icon>
-    {{node.name}}
+    <div class="node-value" [class.selected-node]="selectedNode() === node.index">
+      {{node.name}}
+    </div>
   </mat-tree-node>
   <mat-tree-node
     *matTreeNodeDef="let node; when: hasChild"
@@ -23,11 +22,11 @@
     [cdkTreeNodeTypeaheadLabel]="node.name"
     (click)="SelectNode(node)"
   >
-    <mat-icon
-      [class.selected]="selectedNode() === node.index"
-    >
+    <mat-icon [class.selected]="selectedNode() === node.index">
       {{IsForest(node) ? 'forest' : 'park'}}
     </mat-icon>
-    {{node.name}}
+    <div class="node-value" [class.selected-node]="selectedNode() === node.index">
+      {{node.name}}
+    </div>
   </mat-tree-node>
 </mat-tree>

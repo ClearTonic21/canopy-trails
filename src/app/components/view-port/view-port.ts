@@ -22,12 +22,13 @@ export class ViewPort {
   currentSideBarWidth = signal<string>(this.sideBarDefaultWidth);
 
   ToggleSelectorPanel() {
-    if (parseInt(this.currentSideBarWidth()) > 10) {
+    let sideBarWidthPx = parseInt(this.currentSideBarWidth())
+    if (sideBarWidthPx > 10) {
       this.currentSideBarWidth.set(this.sideBarMinWidth);
       this.selectionPanelPadding.set('1rem 0rem');
     }
     else {
-      this.currentSideBarWidth.set(this.sideBarDefaultWidth);
+      this.currentSideBarWidth.set('fit-content');
       this.selectionPanelPadding.set(this.defaultSelectionPanelPadding);
     }
   }
