@@ -11,7 +11,7 @@
     <mat-icon [class.selected]="selectedNode() === node.index">
       eco
     </mat-icon>
-    <div class="node-value" [class.selected-node]="selectedNode() === node.index">
+    <div class="node-name" [class.selected-node]="selectedNode() === node.index">
       {{node.name}}
     </div>
   </mat-tree-node>
@@ -25,7 +25,7 @@
     <mat-icon [class.selected]="selectedNode() === node.index">
       {{IsForest(node) ? 'forest' : 'park'}}
     </mat-icon>
-    <div class="node-value" [class.selected-node]="selectedNode() === node.index">
+    <div class="node-name" [class.selected-node]="selectedNode() === node.index">
       {{node.name}}
     </div>
   </mat-tree-node>

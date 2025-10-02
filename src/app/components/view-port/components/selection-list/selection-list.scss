@@ -8,16 +8,15 @@ mat-tree {
   font-weight: 800;
 }
 
-
 mat-tree-node {
-  min-width: fit-content;
+  min-width: 20vh;
+  width: fit-content;
   gap: 0.33rem;
   background: whitesmoke;
   cursor: pointer;
   user-select: none;
   font-weight: 800;
-  font-
-
+  white-space: nowrap;
 
   &:hover {
     background: rgb(212, 212, 212);
@@ -30,7 +29,7 @@ mat-tree-node {
   font-weight: 800;
 }
 
-.node-value {
+.node-name {
   overflow: hidden;
   text-overflow: ellipsis;
 }

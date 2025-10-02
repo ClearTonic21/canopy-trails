@@ -1,12 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTreeModule } from '@angular/material/tree';
-import { forEachChild } from 'typescript';
 
 interface FoodNode {
   index: number;
-  [value: string]: any;
   name: string;
+  [value: string]: any;
   children?: FoodNode[];
 }
 @Component({
@@ -55,12 +54,35 @@ const EXAMPLE_DATA: FoodNode[] = [
       {
         index: 2,
         name: 'Green',
-        children: [{index: 7, name: 'Broccoli'}, {index: 8, name: 'Brussels sprouts'}],
+        children: [
+          {index: 7, name: 'Broccoli'},
+          { 
+            index: 8,
+            name: 'Fruit',
+            children: [
+              {
+                index: 2,
+                name: 'Green',
+                children: [
+                  {index: 7, name: 'Broccoli'},
+                  { 
+                    index: 8,
+                    name: 'Fruit',
+                    children: [{index: 9, name: 'Apple'}, {index: 10, name: 'Banana'}, {index: 11, name: 'Fruit loops'}],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
       },
       {
         index: 3,
         name: 'Orange',
-        children: [{index: 9, name: 'Pumpkins'}, {index: 10, name: 'Carrots'}],
+        children: [
+          {index: 9, name: 'Pumpkins'},
+          {index: 10, name: 'Carrots'}
+        ],
       },
     ],
   },

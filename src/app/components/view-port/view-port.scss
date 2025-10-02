@@ -9,13 +9,12 @@
   display: flex;
   flex-direction: column;
   max-width: 50%;
-  // padding: 1rem 0rem 1rem 0rem;
   overflow: hidden;
   background: whitesmoke;
   border-top: solid 0.1rem gray;
   border-bottom: solid 0.18rem rgb(61, 61, 61);
   text-overflow: ellipsis;
-  transition: width 50ms;
+  // transition: width 50ms;
   z-index: 200;
 }
 

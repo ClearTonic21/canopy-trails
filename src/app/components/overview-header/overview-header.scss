@@ -19,18 +19,35 @@ form {
 
 input { 
   display: inline-flex;
-  width: fit-content;
   font-size: x-large;
-  max-width: 50vh;
-  border: 0;
+  border-width: 2px;
+  border-color: transparent;
   background: whitesmoke;
+  line-height: 2.5rem;
+  padding: 0 0.5rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 
-
-  :focus {
+  &:focus {
+    position: absolute;
+    min-width: 64vh;
     background: whitesmoke;
     border-width: 2px;
-    border-style: inset;
-    border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-color: gray;
+    border-radius: 0.25rem;
+    overflow-x: visible;
+    z-index: 10;
+    text-overflow: overflow;
+    overflow: visible;
+  }
+
+  &:hover {
+    background: whitesmoke;
+    border-width: 2px;
+    border-color: gray;
+    border-radius: 0.25rem;
+    z-index: 200;
   }
 }
 
