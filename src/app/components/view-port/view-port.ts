@@ -16,18 +16,32 @@ export class ViewPort {
   @ViewChild('sideNavSelectorPanel') selectorPanelElement!: MatSidenav;
   @ViewChild('chevronIconButton') chevronButton!: MatIconButton;
   protected sideBarDefaultWidth: string = '300px';
-  protected sideBarMinWidth: string = '50px';
-  protected currentSideBarWidth = signal<string>(this.sideBarDefaultWidth);
-  isOpened = signal<boolean>(this.selectorPanelElement?.opened ?? true);
+  protected sideBarMinWidth: string = '0px';
+  protected defaultSelectionPanelPadding = '1rem 0rem 1rem 1rem'
+  selectionPanelPadding = signal<string>(this.defaultSelectionPanelPadding);
+  currentSideBarWidth = signal<string>(this.sideBarDefaultWidth);
 
   ToggleSelectorPanel() {
-    this.selectorPanelElement.toggle();
-    // this.chevronButton._elementRef.nativeElement.style.animationPlayState = this.chevronButton._elementRef.nativeElement.style.animationPlayState === 'running' ? 'paused' : 'running';
+    if (parseInt(this.currentSideBarWidth()) > 10) {
+      this.currentSideBarWidth.set(this.sideBarMinWidth);
+      this.selectionPanelPadding.set('1rem 0rem');
+    }
+    else {
+      this.currentSideBarWidth.set(this.sideBarDefaultWidth);
+      this.selectionPanelPadding.set(this.defaultSelectionPanelPadding);
+    }
   }
 
   protected onDragMoved(event: CdkDragMove) {
     this.currentSideBarWidth.set(event.pointerPosition.x + 'px');
     const element = event.source.element.nativeElement as HTMLElement;
     element.style.transform = 'none';
+    if (parseInt(this.currentSideBarWidth()) < 30) {
+      this.currentSideBarWidth.set(this.sideBarMinWidth);
+      this.selectionPanelPadding.set('1rem 0rem');
+    }
+    else {
+      this.selectionPanelPadding.set(this.defaultSelectionPanelPadding);
+    }
   }
 }

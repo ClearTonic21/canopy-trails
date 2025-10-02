@@ -14,5 +14,6 @@ import { TabPanel } from './components/tab-panel/tab-panel';
 export class App {
   protected readonly standardTitle = signal<string>('CANOPY TRAILS');
   @Output() userTitle = signal<string>('MY CANOPY TRAILS');
+  currentTrail = signal<number>(0);
   
 }

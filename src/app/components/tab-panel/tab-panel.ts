@@ -1,6 +1,6 @@
-import { Component, Input, signal } from '@angular/core';
-import { CdkDragDrop, DragDropModule, moveItemInArray} from '@angular/cdk/drag-drop';
-import { MatTabsModule } from '@angular/material/tabs';
+import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
+import { CdkDragDrop, CdkDragMove, DragDropModule, moveItemInArray} from '@angular/cdk/drag-drop';
+import { MatTabChangeEvent, MatTabsModule } from '@angular/material/tabs';
 class Tab {
   index: number = -1
   name: string = 'tabName'
@@ -14,10 +14,6 @@ class Tab {
 })
 export class TabPanel {
   @Input() tabs: Tab[] = [ 
-    {
-      index: 0,
-      name: 'Tab0'
-    },
     {
       index: 1,
       name: 'Tab1'
@@ -105,15 +101,23 @@ export class TabPanel {
     {
       index: 22,
       name: 'Tab22'
+    },
+    {
+      index: 23,
+      name: 'Tab23'
     }
   ];
-  @Input() selectedTabIndex = signal<number>(0);
+  @Input() defaultTabSelection: number = 0;
+  @Output() currentTab = signal<number>(this.defaultTabSelection);
+  @Output() switchingTabs = new EventEmitter<number>();
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.tabs, event.previousIndex, event.currentIndex);
   }
 
-  isAllTab(tabIndex: number) {
-    return tabIndex === 0;
+  switchTabs($event: MatTabChangeEvent) {
+    this.currentTab.set($event.index);
+    this.switchingTabs.emit(this.currentTab());
+    console.log(this.currentTab());
   }
 }

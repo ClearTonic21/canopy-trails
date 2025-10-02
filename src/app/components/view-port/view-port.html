@@ -3,16 +3,19 @@
     class="selection-list-panel"
     #sideNavSelectorPanel
     [style.width]="currentSideBarWidth()"
+    [style.min-width]="sideBarMinWidth"
+    [style.padding]="selectionPanelPadding()"
   >
     <selection-list></selection-list>
   </div>
   <div
     cdkDrag
     cdkDragLockAxis="x"
+    (dblclick)="ToggleSelectorPanel()"
     (cdkDragMoved)="onDragMoved($event)"
     class="drag-handle"
   >
-    <mat-icon>drag_indicator</mat-icon>
+    <mat-icon>play_arrow</mat-icon>
   </div>
   <div class="content-view-port">
     <p>This is the view port area!</p>
