@@ -6,19 +6,27 @@
   <mat-tree-node 
     *matTreeNodeDef="let node"
     matTreeNodePadding
+    (click)="SelectNode(node)"
   >
-    <mat-icon class="mat-icon-rtl-mirror" (click)="selectLeaf(node)" [class.selected]="selectedLeaf === node.index" disabled>eco</mat-icon>
+    <mat-icon
+      [class.selected]="selectedNode() === node.index"
+      disabled
+    >
+      eco
+    </mat-icon>
     {{node.name}}
   </mat-tree-node>
   <mat-tree-node
-    *matTreeNodeDef="let node;when: hasChild"
+    *matTreeNodeDef="let node; when: hasChild"
     matTreeNodePadding
     matTreeNodeToggle
     [cdkTreeNodeTypeaheadLabel]="node.name"
-    (click)="isForest(node)"
+    (click)="SelectNode(node)"
   >
-    <mat-icon class="mat-icon-rtl-mirror" [class.selected]="tree.isExpanded(node)">
-      {{isForest(node) ? 'forest' : 'park'}}
+    <mat-icon
+      [class.selected]="selectedNode() === node.index"
+    >
+      {{IsForest(node) ? 'forest' : 'park'}}
     </mat-icon>
     {{node.name}}
   </mat-tree-node>

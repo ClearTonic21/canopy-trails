@@ -17,7 +17,7 @@ interface FoodNode {
 })
 export class SelectionList {
   dataSource = EXAMPLE_DATA;
-  selectedLeaf = signal<number>(-1);
+  selectedNode = signal<number>(-1);
 
   childrenAccessor = (node: FoodNode) => node.children ?? [];
 
@@ -27,8 +27,7 @@ export class SelectionList {
     return !!node.children && node.children.length > 0 
   }
   
-  isForest(node: FoodNode): boolean {
-    console.log(node.children);
+  IsForest(node: FoodNode): boolean {
     let isForest = false;
     for(const child of node.children ?? []) {
       isForest = this.NodeHasChild(child);
@@ -36,10 +35,12 @@ export class SelectionList {
     return isForest;
   };
 
-  selectLeaf(node: FoodNode): void {
-    this.selectedLeaf.set(node.index);
+  SelectNode(node: FoodNode): void {
+    this.selectedNode.set(node.index);
+    console.log(`${node.index}:${this.selectedNode()}`);
   }
 }
+//      [class.selected]="tree.isExpanded(node)"
 
 const EXAMPLE_DATA: FoodNode[] = [
   {
