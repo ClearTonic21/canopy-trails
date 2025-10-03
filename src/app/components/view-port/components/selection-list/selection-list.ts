@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, EventEmitter, Output, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTreeModule } from '@angular/material/tree';
 
@@ -17,6 +17,8 @@ interface FoodNode {
 export class SelectionList {
   dataSource = EXAMPLE_DATA;
   selectedNode = signal<number>(-1);
+  @Output() treeOpened = new EventEmitter<number>;
+  @Output() nodeSelected = new EventEmitter<number>;
 
   childrenAccessor = (node: FoodNode) => node.children ?? [];
 
@@ -34,9 +36,14 @@ export class SelectionList {
     return isForest;
   };
 
+  IsSelectedNode(node: FoodNode): boolean {
+    return this.selectedNode() === node.index;
+  }
+
   SelectNode(node: FoodNode): void {
     this.selectedNode.set(node.index);
-    console.log(`${node.index}:${this.selectedNode()}`);
+    this.nodeSelected.emit(node.index);
+    console.log(`nodeSelected():${this.selectedNode()}`);
   }
 }
 //      [class.selected]="tree.isExpanded(node)"
@@ -55,20 +62,20 @@ const EXAMPLE_DATA: FoodNode[] = [
         index: 2,
         name: 'Green',
         children: [
-          {index: 7, name: 'Broccoli'},
+          {index: 7, name: 'Micro Greens'},
           { 
             index: 8,
             name: 'Fruit',
             children: [
               {
-                index: 2,
+                index: 9,
                 name: 'Green',
                 children: [
-                  {index: 7, name: 'Broccoli'},
+                  {index: 12, name: 'Broccoli'},
                   { 
-                    index: 8,
+                    index: 13,
                     name: 'Fruit',
-                    children: [{index: 9, name: 'Apple'}, {index: 10, name: 'Banana'}, {index: 11, name: 'Fruit loops'}],
+                    children: [{index: 14, name: 'Apple'}, {index: 15, name: 'Banana'}, {index: 16, name: 'Fruit loops'}],
                   },
                 ],
               },
@@ -80,8 +87,8 @@ const EXAMPLE_DATA: FoodNode[] = [
         index: 3,
         name: 'Orange',
         children: [
-          {index: 9, name: 'Pumpkins'},
-          {index: 10, name: 'Carrots'}
+          {index: 10, name: 'Pumpkins'},
+          {index: 11, name: 'Carrots'}
         ],
       },
     ],

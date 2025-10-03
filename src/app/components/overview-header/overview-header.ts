@@ -26,9 +26,9 @@ export class OverviewHeader {
   editorMode = signal<boolean>(true);
   viewerMode = signal<boolean>(false);
 
-  adminModeTooltip: string = `Indicates if the current user has Admin Permissions: Admin Permissions are${this.displayHasAdminPermissions()} for the current user`;
-  editorModeTooltip: string = `Switch to Editor Mode [alt + e] Editor Mode is:${this.displayInEditorMode()}`;
-  viewerModeTooltip: string = `Switch to Viewer Mode [alt + v] Viewer Mode is:${this.displayInViewerMode()}`;
+  adminModeTooltip: string = `Toggle Admin Permissions [alt + p]: Admin Permissions are ${this.displayHasAdminPermissions()}`;
+  editorModeTooltip: string = `Switch to Editor Mode [alt + e] Editor Mode is: ${this.displayInEditorMode()}`;
+  viewerModeTooltip: string = `Switch to Viewer Mode [alt + v] Viewer Mode is: ${this.displayInViewerMode()}`;
 
   displayHasAdminPermissions(): string {
     return this.hasAdminPermissions() ? 'Active' : 'Inactive'
@@ -52,16 +52,12 @@ export class OverviewHeader {
     if (this.hasAdminPermissions()) {
       this.switchToEditorMode();
     }
-
-    console.log(`admin:${this.hasAdminPermissions()}, editor:${this.editorMode()}, viewer:${this.viewerMode()}`)
     this.emitControlMode();
   }
 
   switchToEditorMode(): void {
     this.editorMode.set(true);
     this.viewerMode.set(false);
-
-    console.log(`admin:${this.hasAdminPermissions()}, editor:${this.editorMode()}, viewer:${this.viewerMode()}`)
     this.emitControlMode();
   }
 
@@ -69,7 +65,6 @@ export class OverviewHeader {
     this.hasAdminPermissions.set(false);
     this.editorMode.set(false);
     this.viewerMode.set(true);
-    console.log(`admin:${this.hasAdminPermissions()}, editor:${this.editorMode()}, viewer:${this.viewerMode()}`)
     this.emitControlMode();
   }
 
