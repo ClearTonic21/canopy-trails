@@ -2,6 +2,76 @@
   <button matIconButton [matMenuTriggerFor]="canopyTopMenu">
     <mat-icon class="top-menu">menu</mat-icon>
   </button>
+  <div class="start-controls">
+    <input
+      matInput
+      maxlength="50"
+      #titleInput
+      id="titleInput"
+      name="title"
+      type="text"
+      [(ngModel)]="currentTitle"
+      (blur)="UpdateTitle()"
+      (submit)="UpdateTitle()"
+      (keydown)="InputEnterKey($event)"
+    >
+    <mat-button-toggle
+      [checked]="favorited()"
+      (click)="toggleFavorite()"
+    >
+      <mat-icon
+        class="heart"
+        [class.favorited]="favorited()"
+      >
+        favorite
+      </mat-icon>
+    </mat-button-toggle>
+  </div>
+  <div class="end-controls">
+    <mat-button-toggle-group class="control-mode-buttons">
+      <mat-button-toggle 
+        class="control-button"
+        matTooltip="{{viewerModeTooltip}}"
+        value="viewerMode"
+        matMiniFab
+        [checked]="viewerMode()"
+        (click)="switchToViewerMode()"
+      >
+        <mat-icon class="view" [class.viewer-mode]="viewerMode()">visibility</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle 
+        class="control-button"
+        matTooltip="{{editorModeTooltip}}"
+        value="editorMode"
+        matMiniFab
+        [checked]="editorMode()"
+        (click)="switchToEditorMode()"
+      >
+        <mat-icon class="edit" [class.editor-mode]="editorMode()">edit</mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+      <mat-button-toggle-group>
+        <mat-button-toggle 
+          class="control-button"
+          matTooltip="{{adminModeTooltip}}"
+          value="hasAdminPermissions"
+          matMiniFab
+          [checked]="hasAdminPermissions()"
+          (click)="toggleAdminPermissions()"
+        >
+          <mat-icon class="admin" [class.admin-mode]="hasAdminPermissions()">shield_person</mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+    <button
+      matIconButton
+      class="account-circle-icon"
+      matTooltip="Info about the action"
+    >
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
 <mat-menu #canopyTopMenu="matMenu">
   <button mat-menu-item [matMenuTriggerFor]="vertebrates">Vertebrates</button>
   <button mat-menu-item [matMenuTriggerFor]="invertebrates">Invertebrates</button>
@@ -47,64 +117,3 @@
   <button mat-menu-item>Blue Spiny Lizard</button>
   <button mat-menu-item disabled>Velociraptor</button>
 </mat-menu>
-  <form (ngSubmit)="onSubmit()">
-    <input
-      matInput
-      maxlength="50"
-      id="title"
-      name="title"
-      type="text"
-      value="{{title}}"
-    >
-    <mat-button-toggle
-      [checked]="favorited()"
-      (click)="toggleFavorite()"
-    >
-      <mat-icon class="heart" [class.favorited]="favorited()"
->favorite</mat-icon>
-    </mat-button-toggle>
-  </form>
-  <div class="end-controls">
-    <mat-button-toggle-group class="control-mode-buttons">
-      <mat-button-toggle 
-        class="control-button"
-        matTooltip="{{viewerModeTooltip}}"
-        value="viewerMode"
-        matMiniFab
-        [checked]="viewerMode()"
-        (click)="switchToViewerMode()"
-      >
-        <mat-icon class="view" [class.viewer-mode]="viewerMode()">visibility</mat-icon>
-      </mat-button-toggle>
-      <mat-button-toggle 
-        class="control-button"
-        matTooltip="{{editorModeTooltip}}"
-        value="editorMode"
-        matMiniFab
-        [checked]="editorMode()"
-        (click)="switchToEditorMode()"
-      >
-        <mat-icon class="edit" [class.editor-mode]="editorMode()">edit</mat-icon>
-      </mat-button-toggle>
-    </mat-button-toggle-group>
-      <mat-button-toggle-group>
-        <mat-button-toggle 
-          class="control-button"
-          matTooltip="{{adminModeTooltip}}"
-          value="hasAdminPermissions"
-          matMiniFab
-          [checked]="hasAdminPermissions()"
-          (click)="toggleAdminPermissions()"
-        >
-          <mat-icon class="admin" [class.admin-mode]="hasAdminPermissions()">shield_person</mat-icon>
-      </mat-button-toggle>
-    </mat-button-toggle-group>
-    <button
-      matIconButton
-      class="account-circle-icon"
-      matTooltip="Info about the action"
-    >
-      <mat-icon>account_circle</mat-icon>
-    </button>
-  </div>
-</mat-toolbar>

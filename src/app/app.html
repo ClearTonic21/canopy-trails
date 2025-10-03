@@ -1,16 +1,22 @@
 <main class="main">
   <div class="canopy-trails-content">
     <div class="overview-header-container">
-      <overview-header [title]="userTitle()" />
+      <overview-header
+        [currentTitle]="canopyTitle()"
+        (setTitle)="SetNewTitle($event)"
+      />
     </div>
     <div class="view-port-container">
-      <view-port></view-port>
+      <view-port/>
     </div>
     <div class="tab-panel-container">
-      <tab-panel (defaultTabSelection)="2"></tab-panel>
+      <tab-panel
+        (defaultTabSelection)="2"
+        [title]="canopyTitle()"
+      />
     </div>
     <div class="underview-footer-container">
-      <underview-footer></underview-footer>
+      <underview-footer/>
     </div>
   </div>
 </main>

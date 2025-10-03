@@ -11,7 +11,7 @@
   box-shadow: 0.5rem 0.25rem 2rem black;
 }
 
-form {
+.start-controls {
   display: inline-flex;
   align-items: center;
   gap: 1rem;
@@ -26,20 +26,18 @@ input {
   line-height: 2.5rem;
   padding: 0 0.5rem;
   text-overflow: ellipsis;
-  overflow: hidden;
+  font-weight: 700;
   white-space: nowrap;
 
   &:focus {
     position: absolute;
-    min-width: 64vh;
+    min-width: 60vh;
     background: whitesmoke;
     border-width: 2px;
     border-color: gray;
     border-radius: 0.25rem;
     overflow-x: visible;
     z-index: 10;
-    text-overflow: overflow;
-    overflow: visible;
   }
 
   &:hover {

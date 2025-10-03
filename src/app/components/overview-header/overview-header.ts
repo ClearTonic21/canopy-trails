@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, signal, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -15,20 +15,22 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   styleUrl: './overview-header.scss'
 })
 export class OverviewHeader {
-  @Input({ required: true }) title: string = 'Canopy Trails';
-  @Output() setFavorite = new EventEmitter<boolean>;
-  @Output() setAdminPermissions = new EventEmitter<boolean>;
-  @Output() setEditorMode = new EventEmitter<boolean>;
-  @Output() setViewerMode = new EventEmitter<boolean>;
+  @Input({ required: true }) currentTitle: string = '';
   @Output() setTitle = new EventEmitter<string>;
-  favorited = signal<boolean>(false);
-  hasAdminPermissions = signal<boolean>(true);
-  editorMode = signal<boolean>(true);
-  viewerMode = signal<boolean>(false);
-
-  adminModeTooltip: string = `Toggle Admin Permissions [alt + p]: Admin Permissions are ${this.displayHasAdminPermissions()}`;
-  editorModeTooltip: string = `Switch to Editor Mode [alt + e] Editor Mode is: ${this.displayInEditorMode()}`;
-  viewerModeTooltip: string = `Switch to Viewer Mode [alt + v] Viewer Mode is: ${this.displayInViewerMode()}`;
+  @Output() setFavorite = new EventEmitter<boolean>;
+  @Output() setViewerMode = new EventEmitter<boolean>;
+  @Output() setEditorMode = new EventEmitter<boolean>;
+  @Output() setAdminPermissions = new EventEmitter<boolean>;
+  @ViewChild('titleInput') titleInput!: ElementRef;
+  protected readonly standardTitle: string = 'CANOPY TRAILS';
+  protected title = signal<string>(this.currentTitle);
+  protected favorited = signal<boolean>(false);
+  protected viewerMode = signal<boolean>(false);
+  protected editorMode = signal<boolean>(true);
+  protected hasAdminPermissions = signal<boolean>(true);
+  protected adminModeTooltip: string = `Toggle Admin Permissions [alt + p]: Admin Permissions are ${this.displayHasAdminPermissions()}`;
+  protected editorModeTooltip: string = `Switch to Editor Mode [alt + e] Editor Mode is: ${this.displayInEditorMode()}`;
+  protected viewerModeTooltip: string = `Switch to Viewer Mode [alt + v] Viewer Mode is: ${this.displayInViewerMode()}`;
 
   displayHasAdminPermissions(): string {
     return this.hasAdminPermissions() ? 'Active' : 'Inactive'
@@ -74,7 +76,20 @@ export class OverviewHeader {
     this.setAdminPermissions.emit(this.hasAdminPermissions());
   }
 
-  onSubmit(): void {
-    this.setTitle.emit(this.title);
+  InputEnterKey(event: KeyboardEvent): void {
+    if (event.key === 'Enter') {
+      this.UpdateTitle();
+    }
+  }
+  
+  UpdateTitle(): void {
+    this.titleInput.nativeElement.blur()
+    this.title.set(this.currentTitle ? this.currentTitle : this.standardTitle);
+    this.setTitle.emit(this.title());
+    console.log(`${this.currentTitle}: ${this.title()}`);
+  }
+
+  onSubmit() {
+    console.log('Submitted value:', this.currentTitle);
   }
 }

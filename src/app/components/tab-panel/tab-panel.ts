@@ -110,6 +110,7 @@ export class TabPanel {
   @Input() defaultTabSelection: number = 0;
   @Output() currentTab = signal<number>(this.defaultTabSelection);
   @Output() switchingTabs = new EventEmitter<number>();
+  @Input() title: string = '';
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.tabs, event.previousIndex, event.currentIndex);

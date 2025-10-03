@@ -12,8 +12,10 @@ import { TabPanel } from './components/tab-panel/tab-panel';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly standardTitle = signal<string>('CANOPY TRAILS');
-  @Output() userTitle = signal<string>('MY CANOPY TRAILS');
-  currentTrail = signal<number>(0);
+  protected canopyTitle = signal<string>('MY CANOPY TRAILS');
+  protected currentTrail = signal<number>(0);
   
+  SetNewTitle(newTitle: string) {
+    this.canopyTitle.set(newTitle);
+  }
 }

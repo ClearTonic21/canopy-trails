@@ -14,8 +14,9 @@
   border-top: solid 0.1rem gray;
   border-bottom: solid 0.18rem rgb(61, 61, 61);
   text-overflow: ellipsis;
+  box-shadow: 2rem 0rem 1rem;
   // transition: width 50ms;
-  z-index: 200;
+  z-index: 100;
 }
 
 .drag-handle {
@@ -31,7 +32,7 @@
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   cursor: grab;
-  z-index: 100;
+  z-index: 200;
 
   mat-icon {
     display: flex;

@@ -18,7 +18,14 @@
     <mat-icon>play_arrow</mat-icon>
   </div>
   <div class="content-view-port">
-    <p>This is the view port area!</p>
+    <div class="content-list-container">
+      @for (item of ViewPortContentList; track $index) {
+        <div>{{item.name}}</div>
+      }
+      @empty {
+        <div>No items found</div>
+      }
+    </div>
   </div>
 </div>
 

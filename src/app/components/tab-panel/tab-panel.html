@@ -11,7 +11,7 @@
   (cdkDropListDropped)="drop($event)"
   (selectedTabChange)="switchTabs($event)"
 >
-  <mat-tab class="navigation-tab all-tab" label="All">
+  <mat-tab class="navigation-tab all-tab" label="{{title}}: All">
       <span class="all-tab"></span>
   </mat-tab>
   @for (tab of tabs; track $index;) {

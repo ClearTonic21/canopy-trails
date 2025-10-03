@@ -1,10 +1,15 @@
-import { Component, signal, ViewChild } from '@angular/core';
+import { Component, Input, signal, ViewChild } from '@angular/core';
 import { SelectionList } from "./components/selection-list/selection-list";
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import { CdkDragMove, DragDropModule } from '@angular/cdk/drag-drop';
 import { MatDividerModule } from '@angular/material/divider';
+interface ViewPortContentObject {
+  index: number,
+  name: string,
+  value: any
+}
 
 @Component({
   selector: 'view-port',
@@ -15,6 +20,7 @@ import { MatDividerModule } from '@angular/material/divider';
 export class ViewPort {
   @ViewChild('sideNavSelectorPanel') selectorPanelElement!: MatSidenav;
   @ViewChild('chevronIconButton') chevronButton!: MatIconButton;
+  @Input() ViewPortContentList: ViewPortContentObject[]=[];
   protected sideBarDefaultWidth: string = '300px';
   protected sideBarMinWidth: string = '0px';
   protected defaultSelectionPanelPadding = '1rem 0rem 1rem 1rem'
