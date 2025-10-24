@@ -1,0 +1,14 @@
+[
+  {
+    "id": "pylon_wars",
+    "name": "Pylon Wars",
+    "tags": ["RTS", "Mobile"],
+    "description": "The war rages on, each side clings to the bright light and power of their Pylons constantly searching to control more of them; Always attacking those who do the same."
+  },
+  {
+    "id": "keydai_mon",
+    "name": "Keydai-Mon",
+    "tags": ["RTS", "Mobile", "MonsterTamer"],
+    "description": "Shape your team of loyal guardian creatures called Keydai-Mon and best your peers in Real-Time Strategy Battles. Befriend and care for more and more Keydai-Mon as you learn how to synergize their powerful abilities and transformations together. Journey across the land to find a way to save your town from the Black Root infection. Trust that with your Keydai-Mon at your side, anything is possible."
+  }
+]
