@@ -8,7 +8,7 @@
   },
   "include": [
     "src/**/*.ts"
-  ],
+, "src/backend/models/user.js"  ],
   "exclude": [
     "src/**/*.spec.ts"
   ]
