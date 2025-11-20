@@ -8,6 +8,8 @@
 
 # Node
 */node_modules/
+/node_modules
+/backend/node_modules/
 npm-debug.log
 yarn-error.log
 
@@ -15,7 +17,8 @@ yarn-error.log
 .idea/
 .project
 .classpath
-.c9/
+.c9/2 
+.c9/2 
 *.launch
 .settings/
 *.sublime-workspace
