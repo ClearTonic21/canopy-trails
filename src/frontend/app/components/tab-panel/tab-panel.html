@@ -1,0 +1,28 @@
+<mat-tab-group
+  class="navigation-tabs-group"
+  (cdkDropListDropped)="drop($event)"
+  cdkDropListElementContainer=".mat-mdc-tab-labels"
+  headerPosition="below"
+  cdkDropList
+  cdkDropListOrientation="horizontal"
+  animationDuration="200ms"
+  mat-stretch-tabs="false"
+>
+  <mat-tab class="navigation-tab all-tab" label="All">
+      <span class="all-tab"></span>
+  </mat-tab>
+  @for (tab of tabs; track $index;) {
+    <mat-tab id="navigation-tab-{{$index}}" class="navigation-tab" label="{{tab.name}}">
+      <ng-template mat-tab-label>
+        <div
+          class="navigation-tab"
+          cdkDrag
+          cdkDragBoundary=".navigation-tabs-group"
+          cdkDragRootElement=".mat-mdc-tab"
+        >
+          {{tab.name}}
+        </div>
+      </ng-template>
+    </mat-tab>
+  }
+</mat-tab-group>
